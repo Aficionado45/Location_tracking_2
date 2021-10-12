@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "246927303606",
+    "project_id": "locationtracker2-f218c",
+    "storage_bucket": "locationtracker2-f218c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:246927303606:android:5fe1cd06fda3ce7b395717",
+        "android_client_info": {
+          "package_name": "com.example.location_tracking_2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "246927303606-ieope0i340uigj8dmal771qp388nlb0q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_pZQFsSudo7S5Pczl_hmlYJz-rnfb3Lo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "246927303606-ieope0i340uigj8dmal771qp388nlb0q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
