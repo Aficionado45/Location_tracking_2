@@ -57,15 +57,16 @@ class _LoginScreenState extends State<LoginScreen> {
             ElevatedButton(
               onPressed: () async{
                 // If user successfully authenticated, setting SharedPreference and document in Cloud Firestore (if doesn't exist)
-                if(await authenticateUser(userMobileNumber, context)){
-                  SharedPreferences prefs = await SharedPreferences.getInstance();
-                  prefs.setString('mobile', userMobileNumber);
-                  kCurrUser = new User(mobileNumber: userMobileNumber);
-                  if(!await kCurrUser.checkAndRetrieve()){
-                    kCurrUser.createDocument();
-                  }
-                  Navigator.pushNamed(context, HomeScreen.id);
-                }
+                // if(await authenticateUser(userMobileNumber, context)){
+                //   SharedPreferences prefs = await SharedPreferences.getInstance();
+                //   prefs.setString('mobile', userMobileNumber);
+                //   kCurrUser = new User(mobileNumber: userMobileNumber);
+                //   if(!await kCurrUser.checkAndRetrieve()){
+                //     kCurrUser.createDocument();
+                //   }
+                //   Navigator.pushNamed(context, HomeScreen.id);
+                // }
+                await authenticateUser(userMobileNumber, context);
               },
               child: Text(
                 'Get OTP',

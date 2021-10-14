@@ -8,10 +8,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 // Function to logout user, and delete user data from SharedPreferences
 Future logoutUser() async{
   FirebaseAuth auth = FirebaseAuth.instance;
-  await auth.signOut();
+  // await auth.signOut();
 
   SharedPreferences prefs = await SharedPreferences.getInstance();
   prefs.setString('mobile', null);
   kCurrUser = null;
+  kMobileNumber = null;
 
 }

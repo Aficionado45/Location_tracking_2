@@ -28,6 +28,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           onPressed: () async{
             await logoutUser();
+            // Navigator.pushNamedAndRemoveUntil(context, WelcomeScreen.id, (route) => false);
             Navigator.pop(context);
           },
         ),
@@ -42,7 +43,8 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              'Welcome ${kCurrUser.name}',
+              // 'Welcome ${kCurrUser.name}',
+              'Welcome $kMobileNumber',
             ),
           ],
         ),

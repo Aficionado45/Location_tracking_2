@@ -19,11 +19,12 @@ Future<void> main() async {
 
   // Checking if user previously logged in using SharedPreferences
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  var temp = prefs.getString('mobile');
-  if(temp != null){
-    kCurrUser = new User(mobileNumber: temp);
-    kCurrUser.checkAndRetrieve();
-  }
+  var kMobileNumber = prefs.getString('mobile');
+  // var temp = prefs.getString('mobile');
+  // if(temp != null){
+  //   kCurrUser = new User(mobileNumber: temp);
+  //   kCurrUser.checkAndRetrieve();
+  // }
 
   runApp(MyApp());
 }
@@ -41,7 +42,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Live Location Tracking App 2.0',
 
-      home: (kCurrUser == null) ? WelcomeScreen() : HomeScreen(),
+      home: (kMobileNumber == null) ? WelcomeScreen() : HomeScreen(),
       routes: {
         WelcomeScreen.id : (context) => WelcomeScreen(),
         LoginScreen.id : (context) => LoginScreen(),
