@@ -78,9 +78,11 @@ Future<bool> authenticateUser(String mobileNumber, BuildContext context) async{
     },
     // Called when OTP expires due to timeout
     codeAutoRetrievalTimeout: (String verificationId){
-      print(verificationId);
-      print("Timeout");
-      Navigator.pushNamed(context, LoginScreen.id);
+      if(auth.currentUser.uid.isNotEmpty) {
+        print(verificationId);
+        print("Timeout");
+        Navigator.pushNamed(context, LoginScreen.id);
+      }
     },
   );
 }
