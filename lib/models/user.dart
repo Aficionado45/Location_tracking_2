@@ -6,9 +6,23 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class User{
   final String mobileNumber;
+  bool exists;
   String name = '';
 
   User({@required this.mobileNumber, this.name});
+
+  // Checks if user's document is present in Cloud Firestore and updates 'exists' property
+  Future loadExistence() async{
+    await FirebaseFirestore.instance.collection('users').doc(this.mobileNumber).get()
+        .then((DocumentSnapshot documentSnapshot){
+          if(documentSnapshot.exists){
+            exists = true;
+          }
+          else{
+            exists = false;
+          }
+    });
+  }
 
   // Creates and updates documents in Firestore collection 'users' for this user
   Future createDocument(){
@@ -23,19 +37,11 @@ class User{
     });
   }
 
-  // Checks for presence of document in Firestore collection 'users' for this user, and retrieves data
-  Future<bool> checkAndRetrieve(){
+  // Retrieves data from user's document in Cloud Firestore
+  Future<void> retrieveDocument() async{
     CollectionReference users = FirebaseFirestore.instance.collection('users');
-    users.doc(this.mobileNumber).get().then((DocumentSnapshot documentSnapshot) async {
-      if(documentSnapshot.exists){
-        await users.doc(this.mobileNumber).snapshots().listen((event) {
-          this.name = event.get('name');
-        });
-        return true;
-      }
-      else{
-        return false;
-      }
+    await users.doc(this.mobileNumber).snapshots().listen((event) {
+      this.name = event.get('name');
     });
   }
 

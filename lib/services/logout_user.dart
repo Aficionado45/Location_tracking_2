@@ -10,7 +10,7 @@ Future logoutUser() async{
   FirebaseAuth auth = FirebaseAuth.instance;
   await auth.signOut();
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  prefs.remove("phone");
+  prefs.remove("mobile");
   kCurrUser = null;
   kMobileNumber = null;
 
