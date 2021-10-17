@@ -11,6 +11,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:location_tracking_2/screens/welcome_screen.dart';
 import 'package:location_tracking_2/screens/login_screen.dart';
 import 'package:location_tracking_2/screens/home_screen.dart';
+import 'package:location_tracking_2/screens/profile_screen.dart';
+import 'package:location_tracking_2/screens/edit_profile_screen.dart';
 
 Future<void> main() async {
   // Initializing Firebase App
@@ -24,6 +26,7 @@ Future<void> main() async {
   if(temp != null){
     kCurrUser = new User(mobileNumber: temp);
     kCurrUser.retrieveDocument();
+    kCurrUser.downloadProfileImage();
   }
 
   runApp(MyApp());
@@ -47,6 +50,8 @@ class _MyAppState extends State<MyApp> {
         WelcomeScreen.id : (context) => WelcomeScreen(),
         LoginScreen.id : (context) => LoginScreen(),
         HomeScreen.id : (context) => HomeScreen(),
+        ProfileScreen.id: (context) => ProfileScreen(),
+        EditProfileScreen.id: (context) => EditProfileScreen(),
       },
     );
   }
