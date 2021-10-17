@@ -2,10 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:location_tracking_2/constants.dart';
 
-// Importing Firebase Packages
-
 // Importing Screens
 import 'package:location_tracking_2/screens/welcome_screen.dart';
+import 'package:location_tracking_2/screens/profile_screen.dart';
 
 // Importing Services
 import 'package:location_tracking_2/services/logout_user.dart';
@@ -22,14 +21,23 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(
+              Icons.person,
+            ),
+            onPressed: (){
+              Navigator.pushNamed(context, ProfileScreen.id);
+            },
+          ),
+        ],
         leading: IconButton(
           icon: Icon(
             Icons.exit_to_app,
           ),
           onPressed: () async{
             await logoutUser();
-            // Navigator.pushNamedAndRemoveUntil(context, WelcomeScreen.id, (route) => false);
-            Navigator.pop(context);
+            Navigator.pushNamed(context, WelcomeScreen.id);
           },
         ),
         title: Text(
@@ -43,8 +51,7 @@ class _HomeScreenState extends State<HomeScreen> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              // 'Welcome ${kCurrUser.name}',
-              'Welcome $kMobileNumber',
+              'Welcome ${kCurrUser.name}',
             ),
           ],
         ),

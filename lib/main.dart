@@ -11,6 +11,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:location_tracking_2/screens/welcome_screen.dart';
 import 'package:location_tracking_2/screens/login_screen.dart';
 import 'package:location_tracking_2/screens/home_screen.dart';
+import 'package:location_tracking_2/screens/profile_screen.dart';
+import 'package:location_tracking_2/screens/edit_profile_screen.dart';
 
 Future<void> main() async {
   // Initializing Firebase App
@@ -19,12 +21,13 @@ Future<void> main() async {
 
   // Checking if user previously logged in using SharedPreferences
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  var kMobileNumber = prefs.getString('mobile');
-  // var temp = prefs.getString('mobile');
-  // if(temp != null){
-  //   kCurrUser = new User(mobileNumber: temp);
-  //   kCurrUser.checkAndRetrieve();
-  // }
+  // kMobileNumber = prefs.getString('mobile');
+  var temp = prefs.getString('mobile');
+  if(temp != null){
+    kCurrUser = new User(mobileNumber: temp);
+    kCurrUser.retrieveDocument();
+    kCurrUser.downloadProfileImage();
+  }
 
   runApp(MyApp());
 }
@@ -42,11 +45,13 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       title: 'Live Location Tracking App 2.0',
 
-      home: (kMobileNumber == null) ? WelcomeScreen() : HomeScreen(),
+      home: (kCurrUser == null) ? WelcomeScreen() : HomeScreen(),
       routes: {
         WelcomeScreen.id : (context) => WelcomeScreen(),
         LoginScreen.id : (context) => LoginScreen(),
         HomeScreen.id : (context) => HomeScreen(),
+        ProfileScreen.id: (context) => ProfileScreen(),
+        EditProfileScreen.id: (context) => EditProfileScreen(),
       },
     );
   }
