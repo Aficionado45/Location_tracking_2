@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 // Importing Screens
-import 'package:location_tracking_2/screens/login_screen.dart';
-import 'package:location_tracking_2/screens/home_screen.dart';
+import 'package:location_tracking_2/screens/auth/login_screen.dart';
+import 'package:location_tracking_2/screens/home/home_screen.dart';
 
 // Importing Services
 import 'package:location_tracking_2/services/load_user.dart';
@@ -79,5 +79,4 @@ Future<bool> loginUser(String mobileNumber, BuildContext context) async{
       }
     },
   );
-
 }

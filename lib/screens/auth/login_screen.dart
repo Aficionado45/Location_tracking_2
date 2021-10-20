@@ -15,8 +15,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
-  String initialCountry = 'IN';
-  PhoneNumber number = PhoneNumber(isoCode: 'IN');
+  PhoneNumber number = PhoneNumber(isoCode: 'US');
   String userMobileNumber = '';
 
   @override
