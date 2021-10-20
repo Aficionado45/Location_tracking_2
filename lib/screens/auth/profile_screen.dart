@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:location_tracking_2/constants.dart';
 
 // Importing Screens
-import 'package:location_tracking_2/screens/edit_profile_screen.dart';
+import 'package:location_tracking_2/screens/auth/edit_profile_screen.dart';
 
 // Importing Services
 import 'package:location_tracking_2/services/share_app.dart';
@@ -55,14 +55,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 });
               },
             ),
-            ElevatedButton(
-              child: Text(
-                'Invite a Friend',
-              ),
-              onPressed: () async{
-                await shareApp(context);
-              },
-            )
+
           ],
         ),
       ),

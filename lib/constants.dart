@@ -13,4 +13,4 @@ String kProfileImagePath;
 
 // Content to share for invite a friend
 String kShareSubject = 'Friend Invite';
-String kShareText = 'Hey! I invite you to join Live Location Tracking App. Join now by clicking here';
+String kShareText = 'Hey! I invite you to join Live Location Tracking App. Join now using this link https://locationtrackerapp.page.link/register-now';

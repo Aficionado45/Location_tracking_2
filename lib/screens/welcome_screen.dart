@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 // Importing Firebase Packages
 
 // Importing Screens
-import 'package:location_tracking_2/screens/login_screen.dart';
+import 'package:location_tracking_2/screens/auth/login_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const id = '/welcome';
